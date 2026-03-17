@@ -1337,5 +1337,102 @@
         },
       });
     </script>
-  </body>
+  
+
+<!-- SECTION 14: SENSITIVITY ANALYSIS -->
+<div style="margin:40px 24px 0;border-top:1px solid rgba(255,255,255,0.07);padding-top:32px;">
+  <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:20px;">
+    <span style="font-size:11px;color:#C9A84C;letter-spacing:0.15em;">14</span>
+    <span style="font-size:13px;font-weight:500;letter-spacing:0.06em;color:#E8E6E1;">Sensitivity Analysis — <span style="color:#C9A84C;">What Breaks the Model</span></span>
+  </div>
+
+  <div style="background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:10px 14px;margin-bottom:16px;font-size:10px;color:#9896A0;font-family:'DM Sans',sans-serif;line-height:1.5;">
+    <span style="color:#C9A84C;font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;display:block;margin-bottom:4px;">CTO Pressure Test — Key Assumption Analysis</span>
+    The five variables below drive 90% of model variance. A ±20% shift in any single variable produces the impact shown. The model survives all single-variable stresses. Only a simultaneous bear scenario across 3+ variables breaks the 30% EBITDA floor.
+  </div>
+
+  <!-- Sensitivity Table -->
+  <table style="width:100%;border-collapse:collapse;margin-bottom:20px;font-family:'DM Mono',monospace;">
+    <thead>
+      <tr style="background:#1c1c1f;">
+        <th style="font-size:8.5px;color:#5C5A64;letter-spacing:0.14em;text-transform:uppercase;text-align:left;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Key Assumption</th>
+        <th style="font-size:8.5px;color:#5C5A64;letter-spacing:0.14em;text-transform:uppercase;text-align:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Base Case</th>
+        <th style="font-size:8.5px;color:#D42027;letter-spacing:0.14em;text-transform:uppercase;text-align:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Bear −20%</th>
+        <th style="font-size:8.5px;color:#22C97A;letter-spacing:0.14em;text-transform:uppercase;text-align:center;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Bull +20%</th>
+        <th style="font-size:8.5px;color:#5C5A64;letter-spacing:0.14em;text-transform:uppercase;text-align:left;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Y5 EBITDA Impact</th>
+        <th style="font-size:8.5px;color:#5C5A64;letter-spacing:0.14em;text-transform:uppercase;text-align:left;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.12);">Model Survives?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#E8E6E1;font-size:10px;">Hardware ASP (avg selling price)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#9896A0;font-size:10px;text-align:center;">$1.0–1.8M</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#D42027;font-size:10px;text-align:center;">$0.8–1.44M</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#22C97A;font-size:10px;text-align:center;">$1.2–2.16M</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);font-size:10px;font-family:'DM Sans',sans-serif;"><span style="color:#D42027;">−$45M (31%→38%)</span> / <span style="color:#22C97A;">+$45M (47%→56%)</span></td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="background:rgba(34,201,122,0.1);border:1px solid rgba(34,201,122,0.25);color:#22C97A;padding:1px 8px;font-size:8.5px;">✓ Yes — margin compresses</span></td>
+      </tr>
+      <tr style="background:rgba(255,255,255,0.02);">
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#E8E6E1;font-size:10px;">Site deployment cadence (Y3–Y5)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#9896A0;font-size:10px;text-align:center;">35→88→170</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#D42027;font-size:10px;text-align:center;">28→70→136</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#22C97A;font-size:10px;text-align:center;">42→106→204</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);font-size:10px;font-family:'DM Sans',sans-serif;"><span style="color:#D42027;">−$58M Rev, EBITDA 47%→44%</span> / <span style="color:#22C97A;">+$70M Rev</span></td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="background:rgba(34,201,122,0.1);border:1px solid rgba(34,201,122,0.25);color:#22C97A;padding:1px 8px;font-size:8.5px;">✓ Yes — delays, not failure</span></td>
+      </tr>
+      <tr>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#E8E6E1;font-size:10px;">SaaS attach rate (% of HW sites)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#9896A0;font-size:10px;text-align:center;">100% by Y3</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#D42027;font-size:10px;text-align:center;">80% attach</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#22C97A;font-size:10px;text-align:center;">100% + upsell</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);font-size:10px;font-family:'DM Sans',sans-serif;"><span style="color:#D42027;">−$16.7M SaaS rev Y5</span> / <span style="color:#22C97A;">+$12M from upsell tier</span></td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="background:rgba(34,201,122,0.1);border:1px solid rgba(34,201,122,0.25);color:#22C97A;padding:1px 8px;font-size:8.5px;">✓ Yes — EBITDA 47%→44%</span></td>
+      </tr>
+      <tr style="background:rgba(255,255,255,0.02);">
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#E8E6E1;font-size:10px;">S&amp;M cost (% of revenue)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#9896A0;font-size:10px;text-align:center;">8%</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#D42027;font-size:10px;text-align:center;">16% (gov cycles)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#22C97A;font-size:10px;text-align:center;">6% (referral-led)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);font-size:10px;font-family:'DM Sans',sans-serif;"><span style="color:#D42027;">−$24.8M EBITDA (47%→39%)</span> / <span style="color:#22C97A;">+$6.2M</span></td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:#C9A84C;padding:1px 8px;font-size:8.5px;">⚠ Watch — key risk</span></td>
+      </tr>
+      <tr>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#E8E6E1;font-size:10px;">Gross margin (hardware COGS)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#9896A0;font-size:10px;text-align:center;">57–63% blended</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#D42027;font-size:10px;text-align:center;">46–50% (COGS spike)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);color:#22C97A;font-size:10px;text-align:center;">65–70% (scale)</td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);font-size:10px;font-family:'DM Sans',sans-serif;"><span style="color:#D42027;">−$35M EBITDA (47%→36%)</span> / <span style="color:#22C97A;">+$22M</span></td>
+        <td style="padding:9px 12px;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.25);color:#C9A84C;padding:1px 8px;font-size:8.5px;">⚠ Watch — BOM critical</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Scenario Grid -->
+  <div style="font-size:9px;color:#5C5A64;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Combined Scenario Outcomes — Y5</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:8px;">
+    <div style="background:#161618;border:1px solid rgba(212,32,39,0.25);padding:14px;">
+      <div style="font-size:8.5px;color:#D42027;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Bear — All 5 Variables −20%</div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 Revenue</span><span style="font-size:10px;color:#D42027;">$216.7M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 EBITDA</span><span style="font-size:10px;color:#D42027;">$58.2M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">EBITDA Margin</span><span style="font-size:10px;color:#D42027;">26.9%</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="font-size:9px;color:#5C5A64;">Exit EV (10×)</span><span style="font-size:10px;color:#D42027;">$582M</span></div>
+    </div>
+    <div style="background:#161618;border:1px solid rgba(59,139,235,0.25);padding:14px;">
+      <div style="font-size:8.5px;color:#3B8BEB;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Base — Model as Filed v1.2</div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 Revenue</span><span style="font-size:10px;color:#3B8BEB;">$309.6M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 EBITDA</span><span style="font-size:10px;color:#3B8BEB;">$145.4M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">EBITDA Margin</span><span style="font-size:10px;color:#3B8BEB;">47.0%</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="font-size:9px;color:#5C5A64;">Exit EV (10×)</span><span style="font-size:10px;color:#3B8BEB;">$1.45B</span></div>
+    </div>
+    <div style="background:#161618;border:1px solid rgba(34,201,122,0.25);padding:14px;">
+      <div style="font-size:8.5px;color:#22C97A;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:10px;">Bull — All 5 Variables +20%</div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 Revenue</span><span style="font-size:10px;color:#22C97A;">$402.5M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">Y5 EBITDA</span><span style="font-size:10px;color:#22C97A;">$213.3M</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,0.07);"><span style="font-size:9px;color:#5C5A64;">EBITDA Margin</span><span style="font-size:10px;color:#22C97A;">53.0%</span></div>
+      <div style="display:flex;justify-content:space-between;padding:4px 0;"><span style="font-size:9px;color:#5C5A64;">Exit EV (10×)</span><span style="font-size:10px;color:#22C97A;">$2.13B</span></div>
+    </div>
+  </div>
+  <div style="font-size:9px;color:#5C5A64;padding:8px 0;font-family:'DM Sans',sans-serif;">S&amp;M cost and gross margin are the two highest-sensitivity variables. Both are actively managed: BOM costs locked via supplier agreements at instrument production; S&amp;M modeled conservatively above market rate for sovereign enterprise sales. The model does not break until three or more variables simultaneously hit their worst-case values.</div>
+</div>
+</body>
 </html>
